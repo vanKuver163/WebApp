@@ -1,0 +1,52 @@
+﻿@page "{id:min(1)}"
+@model WebApp.Pages.EditAlbumModel
+@{
+    ViewData["Title"] = "Edit album";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+    <input hidden asp-for="Album.Id" />
+    <div class="form-group row">
+        <lebel class="col-sm-2 col-form-label">Artist name:</lebel>
+        <div class="col-sm-10">
+            <input asp-for="Album.NameArtist" class="form-control" placeholder="Album" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <lebel class="col-sm-2 col-form-label">Album name:</lebel>
+        <div class="col-sm-10">
+            <input asp-for="Album.NameAlbum" class="form-control" placeholder="Artist" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <lebel class="col-sm-2 col-form-label">Year:</lebel>
+        <div class="col-sm-10">
+            <input asp-for="Album.Year" class="form-control" placeholder="Year" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <lebel class="col-sm-2 col-form-label">Genre:</lebel>
+        <div class="col-sm-10">
+            <input asp-for="Album.Genres" class="form-control" placeholder="Genre" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <lebel class="col-sm-2 col-form-label">Website:</lebel>
+        <div class="col-sm-10">
+            <input asp-for="Album.Website" class="form-control" placeholder="Website" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <lebel class="col-sm-2 col-form-label">ImageAddress:</lebel>
+        <div class="col-sm-10">
+            <input asp-for="Album.ImageAddress" class="form-control" placeholder="ImageAddress" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <input type="submit" class="btn btn-primary border-white" value="Update"/>
+        </div>
+    </div>
+</form>

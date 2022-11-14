@@ -1,0 +1,71 @@
+﻿@page
+@model WebApp.Pages.UserCollectionModel
+@{
+}
+
+<body>
+    <div class="text-center">
+        <h1 class="display-4">Welcome in My Music</h1>
+    </div>
+    <br />
+    <form method="post">
+        <table class="table table-dark table-striped table-hover table-bordered sorting" id="albums">
+            <thead>
+                <tr class="home">
+                    <th class="align-middle border border-white">
+                        Artist
+                    </th>
+                    <th class="align-middle border border-white">
+                        Album
+                    </th>
+                    <th class="align-middle border border-white">
+                        Year
+                    </th>
+                    <th class="align-middle border border-white">
+                        Genre
+                    </th>
+                    <th class="align-middle border border-white">
+                        Image
+                    </th>
+                    <th class="align-middle border border-white">
+                        Collection
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var obj in Model.Albums)
+                {
+
+                    <tr id="id_@obj.Id" class="@obj.Year">
+                        <td class="align-middle border border-white" width="25%">@obj.NameArtist</td>
+                        <td class="align-middle border border-white" width="25%">@obj.NameAlbum</td>
+                        <td class="align-middle border border-white" width="10%">@obj.Year</td>
+                        <td class="align-middle border border-white" width="20%">@obj.Genres</td>
+                        <td class="align-middle border border-white">
+                            <a href="@obj.Website"><img src="~/Image/@obj.ImageAddress" width="150" height="150" class="align-middle"></a>
+                        </td>
+                        <td class="align-middle border border-white">
+                            <button type="submit" asp-page-handler="Delete" asp-route-id="@obj.Id" class="confirmDeletion btn btn-primary border border-white">Delete</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </form>
+</body>
+
+
+@section Scripts {
+    <script>
+        $("table#albums tbody").sortable({
+            items: "tr:not(.home)",
+            placeholder: "ui-state-highlight",
+            update: function() {
+                let ids = $("table#albums tbody").sortable("serialize");
+                let url = "/UserCollection/Reorder";
+
+                $.post(url, ids, function(){ });
+            }
+        })
+    </script>
+}

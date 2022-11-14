@@ -1,0 +1,65 @@
+﻿@page
+@model WebApp.Pages.Account.RegistrationModel
+@{
+}
+<div>
+    <h1>Register new account</h1>
+</div>
+<div class="container border" style="padding:20px">
+    <form method="post">
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="User.Name"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" asp-for="User.Name" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="User.Name"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="User.Login"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" asp-for="User.Login" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="User.Login"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="User.Password"></label>
+            </div>
+            <div class="col-5">
+                <input type="password" asp-for="User.Password" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="User.Password"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label>Password confirmation</label>
+            </div>
+            <div class="col-5">
+                <input type="password" asp-for="passConfirm" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="passConfirm"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="User.EMail"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" asp-for="User.EMail" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="User.EMail"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <input type="submit" class="btn btn-primary" value="Register" />
+            </div>
+            <div class="col-5">
+
+            </div>
+        </div>
+    </form>
+</div>
